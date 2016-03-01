@@ -1,0 +1,391 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title JS Everywhere
+
+    link(rel='stylesheet', type='text/css', href='build/build.css')
+
+  body
+
+    #broker-stats
+
+    article
+
+      section(data-bespoke-backdrop="crane").transwhite
+        a(href="http://nearform.com" style="width: 200px")
+          img(src="./images/nearform.svg")
+        h1 JS Everywhere
+        h2 by&nbsp;
+          a(href="http://twitter.com/matteocollina") Matteo Collina
+
+      section
+        h2(style="margin-left: -100px")
+          | This&nbsp;
+          span.blink blink
+          | &nbsp;like it's 1998
+
+      section
+        h2 what js is&nbsp;
+          span.blink good
+          | &nbsp;for
+        pre
+          code.language-javascript.
+            if (el.style.visibility === 'hidden') {
+              el.style.visibility = 'visible'
+            } else {
+              el.style.visibility = 'hidden'
+            }
+
+      section
+        img(src="/images/jquery.svg" style="width: 90%")
+
+      section
+        img(src="/images/grunt.png" style="height: 90%")
+
+      section(data-bespoke-backdrop="react").trans
+        img(src="/images/react.svg" style="height: 90%")
+
+      section
+        pre
+          code.language-javascript.
+            var HelloMessage = React.createClass({
+              render: function() {
+                return <div>Hello {this.props.name}</div>;
+              }
+            });
+
+            ReactDOM.render(&lg;HelloMessage name="John" />, mountNode);
+
+      section
+        h1 NodeBots
+        .nodebot
+          .icon
+            .bobble
+            .antenna
+            .head
+              div(class="eye left")
+              div(class="eye right")
+            .neck
+            .neck
+        .copyright Credits
+          a(href="http://github.com/nodebots") &nbsp;http://github.com/nodebots
+
+      section
+        img(src="images/equation.png")
+        .copyright Credits
+          a(href="http://github.com/nodebots") &nbsp;http://github.com/nodebots
+
+      section(data-bespoke-backdrop="arduino").trans
+
+      section(data-bespoke-backdrop="raspi").trans
+
+      section(data-bespoke-backdrop="edison").trans
+
+      section(data-camera="fullscreen")
+        h1 You should not see this!
+
+      section
+        h2 Universal JS
+        img(src="images/js.png" style="height: 50%")
+        ul.bullet
+          li use the same libraries in
+           | browsers, servers, and devices
+          li simple architecture, fewer components
+
+      section(data-bespoke-backdrop="crane").trans
+        h2(style="margin-left: -100px") An IoT system
+
+      section(data-bespoke-backdrop="politie").trans
+        h2(style="margin-left: -100px; color: white;") Another IoT system
+
+      section(data-bespoke-backdrop="office").trans
+        h2(style="margin-left: -100px; margin-bottom: -250px; color: white;") One more IoT system
+
+      section(data-bespoke-backdrop="earth").trans
+        h2(style="margin-left: -100px; margin-bottom: -250px; color: white;")
+          | The world is our playground..
+
+      section(data-bespoke-backdrop="earth").trans
+        h2(style="margin-left: -100px; margin-bottom: -250px; color: white;")
+          | ..for now :)
+
+      section
+        h2 What is an IoT system?
+        br
+        img(src='images/overview.png' style="height: 90%")
+
+      section
+        h2 Architecture
+        img(src='images/puzzle.png' style="height: 90%")
+
+      section
+        h2 Sensor Data Flow
+        img(src='images/sensor data.png' style="height: 90%")
+
+      section
+        h2 Commands Flow
+        img(src='images/commands.png' style="height: 90%")
+
+      section
+        img(src='images/data flow.png' style="height: 90%")
+
+      section
+        h2 Problems
+        ul.bullet
+          li Latency
+          li no reuse
+          li complex
+          li lots of moving parts
+
+      section
+        h2 Using a pub/sub broker
+
+      section
+        h2 Controlling the real world
+        ul.bullet
+          li via sensors and actuators
+          li wired to some silicon
+          li hopefully running Javascript :)
+          li and connected to the Internet
+
+      section
+        h2 Sensor Data Flow
+        img(src='images/pubsub-sensordata.png' style="height: 90%")
+
+      section
+        h2 Commands Flow
+        img(src='images/pubsub-commands.png' style="height: 90%")
+
+      section(data-bespoke-backdrop="node").trans
+
+      section
+        h2 Flow control is built-in
+        h3 If applications sends too much data,
+         | we can slow them down with backpressure!
+        pre
+          code.language-javascript.
+            function process(data, cb) {
+              /* oh yeah, we are processing one
+                 thing at a time
+                 or we can do batches! */
+              setTimeout(cb, 500)
+            }
+
+      section
+        h2 The best community ever
+        h3 we love you too, npm
+
+      section
+        img(src='images/MQTT.js.png' style="height: 60%")
+
+      section.full-imgs
+        img(src="images/mqttorg.svg")
+
+      section
+        h2 MQTT.js works on
+        ul.bullet
+          li browsers
+          li servers
+          li devices
+
+      section
+        h2 MQTT
+        ul
+          li publish/subscribe protocol
+          li multiple quality of service level..
+          li ..with at-least-once and exactly-once semantics
+          li low overhead (2 bytes at minimum)
+          li offline messaging
+          li retained messages, like a key/value store
+          li can run over WebSocket
+
+      section
+        h2 Publish-Subscribe
+        img(src="images/pubsub.png", style="height: 100%")
+
+      section(data-camera="fullscreen")
+        h1 You should not see this!
+
+      section
+        #lux
+
+        div(style='display: block')
+          button(style='float: left').light-on Light on
+          button(style='float: right').light-off Light off
+
+      section
+        h2 Acquiring data!
+        pre
+          code(data-bespoke-autorun).language-javascript.
+            var client = mqtt.connect()
+
+            client.subscribe("edison/lux/#")
+
+            client.once("message", function(topic, payload) {
+              alert(payload)
+              client.end()
+            })
+
+      section
+        h2 Acquiring with backpressure
+        pre
+          code(data-bespoke-autorun).language-javascript.
+            var client = mqtt.connect()
+
+            client.subscribe("edison/lux/#")
+
+            client.handleMessage = function(packet, cb) {
+              alert(packet.payload)
+              client.end()
+              cb()
+            }
+
+      section
+        h2 Turning on a light
+        pre
+          code(data-bespoke-autorun).language-javascript.
+            var client = mqtt.connect()
+
+            client.publish('edison/led', 'on', function() {
+              setTimeout(function() {
+                client.publish('edison/led', 'off')
+                client.end()
+              }, 5000)
+            })
+
+      section(data-camera="fullscreen")
+        h1 You should not see this!
+
+      section
+        h2 Publishing a configuration
+        pre
+          code(data-bespoke-autorun).language-javascript.
+            var client = mqtt.connect()
+            var config = JSON.stringify({
+              enabled: "false"
+            })
+
+            client.publish("edison/config", config, {
+              retain: true
+            })
+            client.end()
+
+      section
+        h2 Setting a configuration
+        pre
+          code(data-bespoke-autorun).language-javascript.
+            var client = mqtt.connect()
+
+            client.subscribe("edison/config")
+
+            client.on("message", function(topic, payload) {
+              alert(payload)
+              setTimeout(client.end.bind(client), 20000);
+            })
+
+      section
+        h2 Publishing another configuration
+        pre
+          code(data-bespoke-autorun).language-javascript.
+            var client = mqtt.connect()
+            var config = JSON.stringify({
+              enabled: "true"
+            })
+
+            client.publish("edison/config", config, {
+              retain: true
+            })
+            client.end()
+
+      section
+        img(src="images/mosca.png")
+        br
+        h3 MQTT broker in Node.js
+
+      section
+        h2 Mosca
+        ul
+          li
+            a(href="http://npm.im/mosca") http://npm.im/mosca
+          li Standalone usage, through `$ mosca`
+          li Embeddable in your app, so you can do X for every message
+          li Authentication APIs
+          li Supports AMQP, Mongo, Redis, and MQTT as pub/sub backends
+          li Needs a DB, such as LevelDB, Mongo, or Redis
+          li Support websockets
+          li Test instance available at test.mosca.io
+          li New version coming with 10x throughput improvement
+
+      section
+        h2 Authentication in Mosca
+
+        pre
+          code.language-javascript.
+            var server = new mosca.Server(settings);
+            /* Accepts the connection if the username
+               and password are valid */
+            function authClient(client, user, pass, cb) {
+              var authorized = (
+                user=== 'alice' &&
+                pass.toString() == 'secret' );
+              if (authorized) client.user = user;
+              callback(null, authorized);
+            }
+            server.authenticate = authClient;
+
+      section
+        h2 Publish Authorization in Mosca
+
+        pre
+          code.language-javascript.
+            var server = new mosca.Server(settings);
+            function authPub(client, topic, payload, cb) {
+              var ok = client.user == topic.split('/')[1];
+              /* we can alter the message here */
+              if (ok) callback(null, payload);
+              else callback(null, false);
+            }
+            server.authorizePublish = authPub;
+
+      section
+        h2 Subscribe Authorization in Mosca
+
+        pre
+          code.language-javascript.
+            var server = new mosca.Server(settings);
+            function authSub(client, topic, cb) {
+              var ok = client.user === topic.split('/')[1];
+              cb(null, ok);
+            }
+            server.authorizeSubscribe = authSub;
+
+      section
+        h2 Storing data in a timeseries
+
+        pre
+          code.language-javascript.
+            var server = new mosca.Server(settings);
+
+            function published(packet, client, callback) {
+              timeseries.store(packet, callback);
+            }
+            server.published = published;
+
+      section.full-imgs
+        img(src='images/me.png')
+
+      section.full-imgs
+        img(src='images/nearform.svg')
+
+      section
+        h1 Thanks!
+        br
+        p If you need help with the Internet of Things
+        br
+        h3 <a href="mailto:hello@matteocollina.com">hello@matteocollina.com</a>
+        h3 <a href="http://twitter.com/matteocollina">@matteocollina</a> on Twitter
+        h3 <a href="http://www.matteocollina.com">www.matteocollina.com</a>
+
+    script(src='build/build.js')

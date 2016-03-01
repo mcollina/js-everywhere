@@ -1,0 +1,409 @@
+
+@import 'prism/themes/prism-okaidia.css'
+@import 'metrics-graphics/dist/metricsgraphics.css'
+@import 'font-awesome/css/font-awesome.css'
+
+slide_width = 640px
+slide_height = 480px
+slide_background = white
+
+slide_transition_length = .6s
+slide_transition_easing = ease
+slide_transition_rotate_y = 90deg
+// Safari bugs out on 3d transform-origins, so we have to fake it
+slide_transition_nudge_x = -100px
+
+bullet_transition_length = .3s
+bullet_transition_easing = ease
+bullet_transition_translate_x = 16px
+
+// base
+
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+@media print
+  *
+    -webkit-print-color-adjust: exact
+
+@page
+  size: landscape
+  margin: 0
+
+// bespoke.js layout styles
+
+.bespoke-parent
+  transition: background slide_transition_length slide_transition_easing
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  overflow: hidden
+  @media print
+    overflow: visible
+    position: static
+
+.bespoke-theme-cube-slide-parent
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  perspective: 600px
+
+.bespoke-slide
+  transition:
+    transform slide_transition_length slide_transition_easing,
+    opacity slide_transition_length slide_transition_easing,
+    background slide_transition_length slide_transition_easing
+  transform-origin: 50% 50% 0
+  backface-visibility: hidden
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  text-align: center
+  width: slide_width
+  height: slide_height
+  position: absolute
+  top: 50%
+  margin-top: (slide_height / 2) * -1
+  left: 50%
+  margin-left: (slide_width / 2) * -1
+  background: slide_background
+  padding: 40px
+  border-radius: 0
+  @media print
+    zoom: 1 !important // disable bespoke-scale
+    height: 743px // seems to correspond with an A4, landscape page height
+    width: 100%
+    page-break-before: always
+    position: static
+    margin: 0
+    transition: none
+
+.bespoke-before
+  transform: translateX(slide_transition_nudge_x * -1) translateX(slide_width / -2) rotateY(slide_transition_rotate_y * -1) translateX(slide_width / -2)
+  @media print
+    transform: none
+
+.bespoke-after
+  transform: translateX(slide_transition_nudge_x) translateX(slide_width / 2) rotateY(slide_transition_rotate_y) translateX(slide_width / 2)
+  @media print
+    transform: none
+
+.bespoke-inactive
+  opacity: 0
+  pointer-events: none
+  @media print
+    opacity 1
+
+.bespoke-active
+  opacity: 1
+
+// bespoke-bullet styles
+
+.bespoke-bullet
+  transition: all bullet_transition_length bullet_transition_easing
+  @media print
+    transition: none
+
+.bespoke-bullet-inactive
+  opacity: 0
+  li&
+    transform: translateX(bullet_transition_translate_x)
+    @media print
+      transform: none
+  @media print
+    opacity: 1
+
+.bespoke-bullet-active
+  opacity: 1
+
+// bespoke-scale styles
+
+.bespoke-scale-parent
+  perspective: 600px
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  pointer-events: none
+  .bespoke-active
+    pointer-events: auto
+  @media print
+    transform: none !important
+
+// bespoke-progress styles
+
+.bespoke-progress-parent
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  height: 2px
+  @media only screen and (min-width: 1366px)
+    height: 4px
+  @media print
+    display: none
+
+.bespoke-progress-bar
+  transition: width .6s ease
+  position: absolute
+  height: 100%
+  background: #0089f3
+  border-radius: 0 4px 4px 0
+
+// bespoke-backdrop styles
+
+.crane
+  background-image: url('../images/crane.jpg')
+  background-size: cover
+
+.politie
+  background-image: url('../images/politie.jpg')
+  background-size: cover
+
+.office
+  background-image: url('../images/office.jpg')
+  background-size: cover
+
+.earth
+  background-image: url('../images/earth.jpg')
+  background-size: cover
+  background-position: bottom
+
+.node
+  background-image: url('../images/nodejs.png')
+  background-size: cover
+
+.arduino
+  background-image: url('../images/arduino.jpg')
+  background-size: cover
+
+.raspi
+  background-image: url('../images/pi.jpg')
+  background-size: cover
+
+.edison
+  background-image: url('../images/edison.jpg')
+  background-size: cover
+
+.react
+  background: #222222
+
+.bespoke-backdrop
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  transform: translateZ(0)
+  transition: opacity slide_transition_length slide_transition_easing
+  opacity: 0
+  z-index: -1
+  &-active
+    opacity: 1
+
+// prism styles
+
+pre
+  padding: 26px !important
+  border-radius: 8px
+
+// content styles
+
+body
+  font-family: helvetica, arial, sans-serif
+  font-size: 18px
+  color: #404040
+
+h1
+  font-size: 72px
+  line-height: 82px
+  letter-spacing: -2px
+  margin-bottom: 16px
+
+h2
+  font-size: 42px
+  letter-spacing: -1px
+  margin-bottom: 8px
+
+h3
+  font-size: 24px
+  font-weight: normal
+  margin-bottom: 24px
+  color: #606060
+
+hr
+  visibility: hidden
+  height: 20px
+
+ul
+  list-style: none
+
+li
+  margin-bottom: 12px
+
+p
+  margin: 0 100px 12px
+  line-height: 22px
+
+a
+  color: #0089f3
+  text-decoration: none
+
+.full-imgs
+  img
+    width: 100%
+    height: 100%
+
+.sensortag
+  background-image: url('../images/sensortag.jpg')
+  background-size: cover
+
+.sensortag-slide
+  background: transparent !important
+  color: white
+
+button
+  padding: 10px
+
+.transgray
+  background: rgba(0,0,0,0.3) !important
+  h3
+    color: white
+
+.transwhite
+  background: rgba(255,255,255,0.8) !important
+
+.trans
+  background: rgba(0,0,0,0) !important
+
+#broker-stats
+  color: #606060
+  position: absolute
+  top: 10px
+  left: 10px
+  z-index: 1000
+
+.nodebot
+  margin:0 auto;
+  z-index:2;
+  opacity: 1;
+  width:250px; /* all the nested css is done as percentages of this, so you can scale it to your <3's content */
+  height:250px;
+  background-color: #F8E01E;
+  position:relative;
+
+  .icon
+    position:absolute;
+    bottom:8%;
+    right:8%;
+    width:45.6%;
+    height:50%;
+
+    .bobble
+      width:12.5%;
+      height:12%;
+      border-radius: 100%;
+      margin:5% auto -3.8%;
+
+  .icon *
+    background: #2e2e2c;
+
+  .antenna
+    width:6%;
+    margin:0 auto 4%;
+    height:16.5%;
+    border-bottom-left-radius: 80% 30%;
+    border-bottom-right-radius: 80% 30%;
+
+  .head
+    width: 100%;
+    height: 48.5%;
+    border-top-left-radius: 15% 25%;
+    border-top-right-radius: 15% 25%;
+    position:relative;
+
+    .eye
+      width:18%;
+      height:33.5%;
+      margin:0 18.2%;
+      border-radius: 100%;
+      background-color: #F8E01E;
+      display: inline-block;
+      position:absolute;
+      top:26%;
+      left: 0px;
+      -webkit-animation: blink 5s 2s infinite;
+      animation: blink 5s 2s infinite;
+
+    .eye.right
+      left: auto;
+      right:0;
+
+    .eye.blink
+      height: 6%;
+      top:36%;
+      border-radius: 0;
+      background-color: #000;
+
+  .neck
+    border-radius: 20px;
+    width: 69%;
+    height: 6%;
+    margin: 3.6% auto 0;
+
+  .neck:last-child
+    width: 48%;
+
+@-webkit-keyframes blink {
+  0%, 4%, 8%, 100%{
+    height:33.5%;
+    border-radius: 100%;
+    background-color: #F8E01E;
+    top:26%;
+  }
+  2%, 6% {
+    height: 6%;
+    top:36%;
+    border-radius: 0;
+    background-color: #000;
+  }
+}
+
+@keyframes blink {
+  0%, 4%, 8%, 100%{
+    height:33.5%;
+    border-radius: 100%;
+    background-color: #F8E01E;
+    top:26%;
+  }
+  2%, 6% {
+    height: 6%;
+    top:36%;
+    border-radius: 0;
+    background-color: #000;
+  }
+}
+
+.copyright
+  font-size: 10px
+  text-align: right
+  position: absolute
+  bottom: 0px
+  right: 20px;
+  margin: 0px
+  padding: 0px
+  opacity: 0.5
+
+  a
+    color: #404040
+
+  img
+    height: 10px;

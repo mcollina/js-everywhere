@@ -41,8 +41,49 @@ html
       section
         img(src="/images/jquery.svg" style="width: 90%")
 
+      section(data-bespoke-backdrop="node").trans
+
+      section
+        h2 Flow control is built-in
+        h3 If applications sends too much data,
+         | we can slow them down with backpressure!
+        pre
+          code.language-javascript.
+            function process(data, cb) {
+              /* oh yeah, we are processing one
+                 thing at a time
+                 or we can do batches! */
+              setTimeout(cb, 500)
+            }
+
+      section
+        h2 Node.js has streams too!
+        pre
+          code.language-javascript.
+            source.pipe(dest).pipe(source)
+
+      section
+        h2 Microservices
+        ul.bullet
+          li AWS Lambda
+          li Netflix
+          li Uber
+          li ... and many others!
+
+      section
+        a(href="http://senecajs.org" style="width: 100%")
+          img(src="./images/seneca.svg")
+
+      section
+        img(src='images/npm.svg' style="height: 50%")
+        h2 The best community ever
+        h3 we love you too, npm
+
       section
         img(src="/images/grunt.png" style="height: 90%")
+
+      section
+        img(src="/images/gulp.svg" style="height: 90%")
 
       section(data-bespoke-backdrop="react").trans
         img(src="/images/react.svg" style="height: 90%")
@@ -56,7 +97,7 @@ html
               }
             });
 
-            ReactDOM.render(&lg;HelloMessage name="John" />, mountNode);
+            ReactDOM.render(&lt;HelloMessage name="John" />, mountNode);
 
       section
         h1 NodeBots
@@ -79,7 +120,26 @@ html
 
       section(data-bespoke-backdrop="arduino").trans
 
+      section
+        img(src="images/johnny-five.png" style="height: 80%")
+
+      section
+        h2 Johnny Five
+        pre
+          code.language-javascript.
+            var five = require("johnny-five")
+            var board = new five.Board()
+
+            board.on('ready', function () {
+              /* Create an Led on pin 13 */
+              var led = new five.Led(13)
+              /* Blink every half second */
+              led.blink(500)
+            })
+
       section(data-bespoke-backdrop="raspi").trans
+
+      section(data-bespoke-backdrop="tessel2").trans
 
       section(data-bespoke-backdrop="edison").trans
 
@@ -93,6 +153,7 @@ html
           li use the same libraries in
            | browsers, servers, and devices
           li simple architecture, fewer components
+          li can we use all of this to build an IoT system?
 
       section(data-bespoke-backdrop="crane").trans
         h2(style="margin-left: -100px") An IoT system
@@ -143,14 +204,6 @@ html
         h2 Using a pub/sub broker
 
       section
-        h2 Controlling the real world
-        ul.bullet
-          li via sensors and actuators
-          li wired to some silicon
-          li hopefully running Javascript :)
-          li and connected to the Internet
-
-      section
         h2 Sensor Data Flow
         img(src='images/pubsub-sensordata.png' style="height: 90%")
 
@@ -158,30 +211,13 @@ html
         h2 Commands Flow
         img(src='images/pubsub-commands.png' style="height: 90%")
 
+      section.full-imgs
+        img(src="images/mqttorg.svg")
+
       section(data-bespoke-backdrop="node").trans
 
       section
-        h2 Flow control is built-in
-        h3 If applications sends too much data,
-         | we can slow them down with backpressure!
-        pre
-          code.language-javascript.
-            function process(data, cb) {
-              /* oh yeah, we are processing one
-                 thing at a time
-                 or we can do batches! */
-              setTimeout(cb, 500)
-            }
-
-      section
-        h2 The best community ever
-        h3 we love you too, npm
-
-      section
         img(src='images/MQTT.js.png' style="height: 60%")
-
-      section.full-imgs
-        img(src="images/mqttorg.svg")
 
       section
         h2 MQTT.js works on
@@ -312,7 +348,7 @@ html
           li Standalone usage, through `$ mosca`
           li Embeddable in your app, so you can do X for every message
           li Authentication APIs
-          li Supports AMQP, Mongo, Redis, and MQTT as pub/sub backends
+          li Supports Mongo, Redis, AMQP, and MQTT as pub/sub backends
           li Needs a DB, such as LevelDB, Mongo, or Redis
           li Support websockets
           li Test instance available at test.mosca.io
@@ -373,6 +409,67 @@ html
             }
             server.published = published;
 
+      section
+        a(href="http://senecajs.org" style="width: 100%")
+          img(src="./images/seneca.svg")
+        h3
+          a(href="http://senecajs.org" style="width: 100%").
+            http://senecajs.org
+
+      section
+        pre
+          code.language-javascript.
+            var seneca = require('seneca')()
+            seneca.add({
+              role:'user',
+              cmd:'login'
+            }, function (args, callback) {
+              var loggedIn = args.username === 'matteo' &&
+                             args.password === 'collina'
+              callback(null, { loggedIn:loggedIn })
+            })
+            seneca.listen()
+
+      section
+        pre
+          code.language-javascript.
+            var seneca = require('seneca')()
+            var client = seneca.client()
+            client.act({
+              role:'user',
+              cmd:'login',
+              username: 'matteo',
+              password: 'collina'
+            }, function (err, result) {
+              console.log(result.loggedIn)
+            })
+
+      section
+        h3
+          img(src="./images/seneca.svg" style="width: 20%; margin-top 30%;")
+          br
+          | Features
+        ul.bullet
+          li multiple transports, from bare TCP to busses
+          li build a monolith, and then split it away
+          li deep inspection & debugging tools
+          li authentication/user managament system
+          li control panel
+          li integration with HAPI
+
+      section
+        h2 This presentation
+        ul
+          li
+            a(href="https://github.com/mcollina/js-everywhere").
+              https://github.com/mcollina/js-everywhere
+          li
+            a(href="https://mcollina.github.io/js-everywhere").
+              https://mcollina.github.io/js-everywhere
+          li
+            a(href="https://github.com/nearform/iot-system").
+              https://github.com/mcollina/iot-system
+
       section.full-imgs
         img(src='images/me.png')
 
@@ -382,7 +479,7 @@ html
       section
         h1 Thanks!
         br
-        p If you need help with the Internet of Things
+        p If you need help with Node or the Internet of Things
         br
         h3 <a href="mailto:hello@matteocollina.com">hello@matteocollina.com</a>
         h3 <a href="http://twitter.com/matteocollina">@matteocollina</a> on Twitter

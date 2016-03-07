@@ -1,4 +1,5 @@
 node_modules
 bower_components
 dist
-bespoke-theme-*
+bespoke-theme-
+*.DS_Store

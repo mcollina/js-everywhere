@@ -251,6 +251,10 @@ html
           button(style='float: left').light-on Light on
           button(style='float: right').light-off Light off
 
+
+      section(data-camera="fullscreen")
+        h1 You should not see this!
+
       section
         h2 Acquiring data!
         pre
@@ -456,19 +460,67 @@ html
           li authentication/user managament system
           li control panel
           li integration with HAPI
+          li gossip-based service discovery
+
+      section
+        h2 Demo: an IoT system
+        ul.bullet
+          li microservice based
+          li on top of MQTT
+          li service discovery based on gossip
+
+      section
+        img(src='images/iot-system.png' style="height: 90%")
+
+      section
+        img(src='images/fuge.png' style="width: 90%")
+
+      section
+        h2 Demo!
+
+      section
+        h2 Links
+        ul.bullet(style="text-align: left")
+          li(style="text-align: left")
+            b MQTT.js:&nbsp;
+            a(href="http://npm.im/mqtt") http://npm.im/mqtt
+          li(style="text-align: left")
+            b Mosca:&nbsp;
+            a(href="http://mosca.io/") http://mosca.io
+          li(style="text-align: left")
+            b Seneca:&nbsp;
+            a(href="http://senecajs.org/") http://senecajs.org/
+          li(style="text-align: left")
+            b Fuge:&nbsp;
+            a(href="http://fuge.io") http://fuge.io
+          li(style="text-align: left")
+            b Vidi:&nbsp;
+            a(href="https://github.com/vidi-insights/vidi-dashboard") https://github.com/vidi-insights/vidi-dashboard
+          li(style="text-align: left")
+            b seneca-mesh:&nbsp;
+            a(href="http://npm.im/seneca-mesh")  http://npm.im/seneca-mesh
+          li(style="text-align: left")
+            b toolbag:&nbsp;
+            a(href="http://npm.im/toolbag") http://npm.im/toolbag
+          li(style="text-align: left")
+            b swim-js:&nbsp;
+            a(href="http://npm.im/swim-js") http://npm.im/swim-js
+          li(style="text-align: left")
+            b baseswim:&nbsp;
+            a(href="http://npm.im/baseswim") http://npm.im/baseswim
 
       section
         h2 This presentation
         ul
-          li
+          li(style="text-align: left")
             a(href="https://github.com/mcollina/js-everywhere").
               https://github.com/mcollina/js-everywhere
-          li
+          li(style="text-align: left")
             a(href="https://mcollina.github.io/js-everywhere").
               https://mcollina.github.io/js-everywhere
-          li
+          li(style="text-align: left")
             a(href="https://github.com/nearform/iot-system").
-              https://github.com/mcollina/iot-system
+              https://github.com/nearform/iot-system
 
       section.full-imgs
         img(src='images/me.png')
@@ -479,10 +531,11 @@ html
       section
         h1 Thanks!
         br
-        p If you need help with Node or the Internet of Things
+        p If you need help with Node
+        p or the Internet of Things
         br
-        h3 <a href="mailto:hello@matteocollina.com">hello@matteocollina.com</a>
+        h3 <a href="mailto:matteo.collina@nearform.com">matteo.collina@nearform.com</a>
         h3 <a href="http://twitter.com/matteocollina">@matteocollina</a> on Twitter
-        h3 <a href="http://www.matteocollina.com">www.matteocollina.com</a>
+        h3 <a href="http://www.nearform.com">www.nearform.com</a>
 
     script(src='build/build.js')

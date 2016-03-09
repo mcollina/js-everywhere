@@ -12,10 +12,8 @@ var bespoke = require('bespoke'),
   run = require('bespoke-run'),
   camera = require('bespoke-camera'),
   jQuery = require('jquery')
-  //broker = 'ws://test.mosca.io:80',
-  broker = 'ws://localhost:3042',
-  credentials = { username: 'admin', password: 'admin' },
-  client = require('mqtt').connect(broker, { username: 'admin', password: 'admin' }),
+  broker = 'ws://test.mosca.io:80',
+  client = require('mqtt').connect(broker),
   blink = require('./blink'),
   forms = require('bespoke-forms');
 
@@ -61,7 +59,7 @@ var fakeMqtt = Object.create(require('mqtt'));
 
 fakeMqtt._connect = fakeMqtt.connect;
 fakeMqtt.connect = function() {
-  return this._connect(broker, credentials);
+  return this._connect(broker);
 };
 
 window.mqtt = fakeMqtt;

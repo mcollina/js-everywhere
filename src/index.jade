@@ -241,104 +241,6 @@ html
         h2 Publish-Subscribe
         img(src="images/pubsub.png", style="height: 100%")
 
-      section(data-camera="fullscreen")
-        h1 You should not see this!
-
-      section
-        #lux
-
-        div(style='display: block')
-          button(style='float: left').light-on Light on
-          button(style='float: right').light-off Light off
-
-
-      section(data-camera="fullscreen")
-        h1 You should not see this!
-
-      section
-        h2 Acquiring data!
-        pre
-          code(data-bespoke-autorun).language-javascript.
-            var client = mqtt.connect()
-
-            client.subscribe("edison/lux/#")
-
-            client.once("message", function(topic, payload) {
-              alert(payload)
-              client.end()
-            })
-
-      section
-        h2 Acquiring with backpressure
-        pre
-          code(data-bespoke-autorun).language-javascript.
-            var client = mqtt.connect()
-
-            client.subscribe("edison/lux/#")
-
-            client.handleMessage = function(packet, cb) {
-              alert(packet.payload)
-              client.end()
-              cb()
-            }
-
-      section
-        h2 Turning on a light
-        pre
-          code(data-bespoke-autorun).language-javascript.
-            var client = mqtt.connect()
-
-            client.publish('edison/led', 'on', function() {
-              setTimeout(function() {
-                client.publish('edison/led', 'off')
-                client.end()
-              }, 5000)
-            })
-
-      section(data-camera="fullscreen")
-        h1 You should not see this!
-
-      section
-        h2 Publishing a configuration
-        pre
-          code(data-bespoke-autorun).language-javascript.
-            var client = mqtt.connect()
-            var config = JSON.stringify({
-              enabled: "false"
-            })
-
-            client.publish("edison/config", config, {
-              retain: true
-            })
-            client.end()
-
-      section
-        h2 Setting a configuration
-        pre
-          code(data-bespoke-autorun).language-javascript.
-            var client = mqtt.connect()
-
-            client.subscribe("edison/config")
-
-            client.on("message", function(topic, payload) {
-              alert(payload)
-              setTimeout(client.end.bind(client), 20000);
-            })
-
-      section
-        h2 Publishing another configuration
-        pre
-          code(data-bespoke-autorun).language-javascript.
-            var client = mqtt.connect()
-            var config = JSON.stringify({
-              enabled: "true"
-            })
-
-            client.publish("edison/config", config, {
-              retain: true
-            })
-            client.end()
-
       section
         img(src="images/mosca.png")
         br
@@ -477,6 +379,9 @@ html
 
       section
         h2 Demo!
+        p
+          a(href="https://github.com/nearform/iot-system").
+            https://github.com/nearform/iot-system
 
       section
         h2 Links

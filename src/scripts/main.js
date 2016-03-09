@@ -1,7 +1,6 @@
 // Require Node modules in the browser thanks to Browserify: http://browserify.org
 var bespoke = require('bespoke'),
   classes = require('bespoke-classes'),
-  run = require('bespoke-run'),
   keys = require('bespoke-keys'),
   touch = require('bespoke-touch'),
   bullets = require('bespoke-bullets'),
@@ -10,7 +9,6 @@ var bespoke = require('bespoke'),
   hash = require('bespoke-hash'),
   progress = require('bespoke-progress'),
   run = require('bespoke-run'),
-  camera = require('bespoke-camera'),
   jQuery = require('jquery')
   broker = 'ws://test.mosca.io:80',
   client = require('mqtt').connect(broker),
@@ -39,7 +37,6 @@ bespoke.from('article', [
   keys(),
   touch(),
   run(),
-  camera({ width: "320px" }),
   bullets('li, .bullet'),
   backdrop(),
   scale(),

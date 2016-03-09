@@ -2,7 +2,6 @@
   "name": "presentation-enterprise-iot-systems-with-node-and-mqtt",
   "version": "0.0.0",
   "dependencies": {
-    "bespoke-camera": "^1.0.0",
     "bespoke-classes": "^1.0.0",
     "bespoke-run": "^1.0.1",
     "jquery": "^2.1.3",

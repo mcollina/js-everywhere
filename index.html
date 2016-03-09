@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>JS Everywhere</title>
+    <link rel="stylesheet" type="text/css" href="build/build.css">
+  </head>
+  <body>
+    <div id="broker-stats"></div>
+    <article>
+      <section data-bespoke-backdrop="crane" class="transwhite"><a href="http://nearform.com" style="width: 200px"><img src="./images/nearform.svg"></a>
+        <h1>JS Everywhere</h1>
+        <h2>by&nbsp;<a href="http://twitter.com/matteocollina">Matteo Collina</a></h2>
+      </section>
+      <section>
+        <h2 style="margin-left: -100px">This&nbsp;<span class="blink">blink</span>&nbsp;like it's 1998</h2>
+      </section>
+      <section>
+        <h2>what js is&nbsp;<span class="blink">good</span>&nbsp;for</h2>
+        <pre><code class="language-javascript">if (el.style.visibility === 'hidden') {
+  el.style.visibility = 'visible'
+} else {
+  el.style.visibility = 'hidden'
+}
+</code></pre>
+      </section>
+      <section><img src="/images/jquery.svg" style="width: 90%"></section>
+      <section data-bespoke-backdrop="node" class="trans"></section>
+      <section>
+        <h2>Flow control is built-in</h2>
+        <h3>
+          If applications sends too much data,
+          we can slow them down with backpressure!
+        </h3>
+        <pre><code class="language-javascript">function process(data, cb) {
+  /* oh yeah, we are processing one
+     thing at a time
+     or we can do batches! */
+  setTimeout(cb, 500)
+}
+</code></pre>
+      </section>
+      <section>
+        <h2>Node.js has streams too!</h2>
+        <pre><code class="language-javascript">source.pipe(dest).pipe(source)
+</code></pre>
+      </section>
+      <section>
+        <h2>Microservices</h2>
+        <ul class="bullet">
+          <li>AWS Lambda</li>
+          <li>Netflix</li>
+          <li>Uber</li>
+          <li>... and many others!</li>
+        </ul>
+      </section>
+      <section><a href="http://senecajs.org" style="width: 100%"><img src="./images/seneca.svg"></a></section>
+      <section><img src="images/npm.svg" style="height: 50%">
+        <h2>The best community ever</h2>
+        <h3>we love you too, npm</h3>
+      </section>
+      <section><img src="/images/grunt.png" style="height: 90%"></section>
+      <section><img src="/images/gulp.svg" style="height: 90%"></section>
+      <section data-bespoke-backdrop="react" class="trans"><img src="/images/react.svg" style="height: 90%"></section>
+      <section>
+        <pre><code class="language-javascript">var HelloMessage = React.createClass({
+  render: function() {
+    return <div>Hello {this.props.name}</div>;
+  }
+});
+
+ReactDOM.render(&lt;HelloMessage name="John" />, mountNode);
+</code></pre>
+      </section>
+      <section>
+        <h1>NodeBots</h1>
+        <div class="nodebot">
+          <div class="icon">
+            <div class="bobble"></div>
+            <div class="antenna"></div>
+            <div class="head">
+              <div class="eye left"></div>
+              <div class="eye right"></div>
+            </div>
+            <div class="neck"></div>
+            <div class="neck"></div>
+          </div>
+        </div>
+        <div class="copyright">Credits<a href="http://github.com/nodebots">&nbsp;http://github.com/nodebots</a></div>
+      </section>
+      <section><img src="images/equation.png">
+        <div class="copyright">Credits<a href="http://github.com/nodebots">&nbsp;http://github.com/nodebots</a></div>
+      </section>
+      <section data-bespoke-backdrop="arduino" class="trans"></section>
+      <section><img src="images/johnny-five.png" style="height: 80%"></section>
+      <section>
+        <h2>Johnny Five</h2>
+        <pre><code class="language-javascript">var five = require("johnny-five")
+var board = new five.Board()
+
+board.on('ready', function () {
+  /* Create an Led on pin 13 */
+  var led = new five.Led(13)
+  /* Blink every half second */
+  led.blink(500)
+})
+</code></pre>
+      </section>
+      <section data-bespoke-backdrop="raspi" class="trans"></section>
+      <section data-bespoke-backdrop="tessel2" class="trans"></section>
+      <section data-bespoke-backdrop="edison" class="trans"></section>
+      <section data-camera="fullscreen">
+        <h1>You should not see this!</h1>
+      </section>
+      <section>
+        <h2>Universal JS</h2><img src="images/js.png" style="height: 50%">
+        <ul class="bullet">
+          <li>
+            use the same libraries in
+            browsers, servers, and devices
+          </li>
+          <li>simple architecture, fewer components</li>
+          <li>can we use all of this to build an IoT system?</li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="crane" class="trans">
+        <h2 style="margin-left: -100px">An IoT system</h2>
+      </section>
+      <section data-bespoke-backdrop="politie" class="trans">
+        <h2 style="margin-left: -100px; color: white;">Another IoT system</h2>
+      </section>
+      <section data-bespoke-backdrop="office" class="trans">
+        <h2 style="margin-left: -100px; margin-bottom: -250px; color: white;">One more IoT system</h2>
+      </section>
+      <section data-bespoke-backdrop="earth" class="trans">
+        <h2 style="margin-left: -100px; margin-bottom: -250px; color: white;">The world is our playground..</h2>
+      </section>
+      <section data-bespoke-backdrop="earth" class="trans">
+        <h2 style="margin-left: -100px; margin-bottom: -250px; color: white;">..for now :)</h2>
+      </section>
+      <section>
+        <h2>What is an IoT system?</h2><br><img src="images/overview.png" style="height: 90%">
+      </section>
+      <section>
+        <h2>Architecture</h2><img src="images/puzzle.png" style="height: 90%">
+      </section>
+      <section>
+        <h2>Sensor Data Flow</h2><img src="images/sensor data.png" style="height: 90%">
+      </section>
+      <section>
+        <h2>Commands Flow</h2><img src="images/commands.png" style="height: 90%">
+      </section>
+      <section><img src="images/data flow.png" style="height: 90%"></section>
+      <section>
+        <h2>Problems</h2>
+        <ul class="bullet">
+          <li>Latency</li>
+          <li>no reuse</li>
+          <li>complex</li>
+          <li>lots of moving parts</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Using a pub/sub broker</h2>
+      </section>
+      <section>
+        <h2>Sensor Data Flow</h2><img src="images/pubsub-sensordata.png" style="height: 90%">
+      </section>
+      <section>
+        <h2>Commands Flow</h2><img src="images/pubsub-commands.png" style="height: 90%">
+      </section>
+      <section class="full-imgs"><img src="images/mqttorg.svg"></section>
+      <section data-bespoke-backdrop="node" class="trans"></section>
+      <section><img src="images/MQTT.js.png" style="height: 60%"></section>
+      <section>
+        <h2>MQTT.js works on</h2>
+        <ul class="bullet">
+          <li>browsers</li>
+          <li>servers</li>
+          <li>devices</li>
+        </ul>
+      </section>
+      <section>
+        <h2>MQTT</h2>
+        <ul>
+          <li>publish/subscribe protocol</li>
+          <li>multiple quality of service level..</li>
+          <li>..with at-least-once and exactly-once semantics</li>
+          <li>low overhead (2 bytes at minimum)</li>
+          <li>offline messaging</li>
+          <li>retained messages, like a key/value store</li>
+          <li>can run over WebSocket</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Publish-Subscribe</h2><img src="images/pubsub.png" style="height: 100%">
+      </section>
+      <section><img src="images/mosca.png"><br>
+        <h3>MQTT broker in Node.js</h3>
+      </section>
+      <section>
+        <h2>Mosca</h2>
+        <ul>
+          <li><a href="http://npm.im/mosca">http://npm.im/mosca</a></li>
+          <li>Standalone usage, through `$ mosca`</li>
+          <li>Embeddable in your app, so you can do X for every message</li>
+          <li>Authentication APIs</li>
+          <li>Supports Mongo, Redis, AMQP, and MQTT as pub/sub backends</li>
+          <li>Needs a DB, such as LevelDB, Mongo, or Redis</li>
+          <li>Support websockets</li>
+          <li>Test instance available at test.mosca.io</li>
+          <li>New version coming with 10x throughput improvement</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Authentication in Mosca</h2>
+        <pre><code class="language-javascript">var server = new mosca.Server(settings);
+/* Accepts the connection if the username
+   and password are valid */
+function authClient(client, user, pass, cb) {
+  var authorized = (
+    user=== 'alice' &&
+    pass.toString() == 'secret' );
+  if (authorized) client.user = user;
+  callback(null, authorized);
+}
+server.authenticate = authClient;
+</code></pre>
+      </section>
+      <section>
+        <h2>Publish Authorization in Mosca</h2>
+        <pre><code class="language-javascript">var server = new mosca.Server(settings);
+function authPub(client, topic, payload, cb) {
+  var ok = client.user == topic.split('/')[1];
+  /* we can alter the message here */
+  if (ok) callback(null, payload);
+  else callback(null, false);
+}
+server.authorizePublish = authPub;
+</code></pre>
+      </section>
+      <section>
+        <h2>Subscribe Authorization in Mosca</h2>
+        <pre><code class="language-javascript">var server = new mosca.Server(settings);
+function authSub(client, topic, cb) {
+  var ok = client.user === topic.split('/')[1];
+  cb(null, ok);
+}
+server.authorizeSubscribe = authSub;
+</code></pre>
+      </section>
+      <section>
+        <h2>Storing data in a timeseries</h2>
+        <pre><code class="language-javascript">var server = new mosca.Server(settings);
+
+function published(packet, client, callback) {
+  timeseries.store(packet, callback);
+}
+server.published = published;
+</code></pre>
+      </section>
+      <section><a href="http://senecajs.org" style="width: 100%"><img src="./images/seneca.svg"></a>
+        <h3><a href="http://senecajs.org" style="width: 100%">
+            http://senecajs.org
+            </a></h3>
+      </section>
+      <section>
+        <pre><code class="language-javascript">var seneca = require('seneca')()
+seneca.add({
+  role:'user',
+  cmd:'login'
+}, function (args, callback) {
+  var loggedIn = args.username === 'matteo' &&
+                 args.password === 'collina'
+  callback(null, { loggedIn:loggedIn })
+})
+seneca.listen()
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-javascript">var seneca = require('seneca')()
+var client = seneca.client()
+client.act({
+  role:'user',
+  cmd:'login',
+  username: 'matteo',
+  password: 'collina'
+}, function (err, result) {
+  console.log(result.loggedIn)
+})
+</code></pre>
+      </section>
+      <section>
+        <h3><img src="./images/seneca.svg" style="width: 20%; margin-top 30%;"><br>Features</h3>
+        <ul class="bullet">
+          <li>multiple transports, from bare TCP to busses</li>
+          <li>build a monolith, and then split it away</li>
+          <li>deep inspection & debugging tools</li>
+          <li>authentication/user managament system</li>
+          <li>control panel</li>
+          <li>integration with HAPI</li>
+          <li>gossip-based service discovery</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Demo: an IoT system</h2>
+        <ul class="bullet">
+          <li>microservice based</li>
+          <li>on top of MQTT</li>
+          <li>service discovery based on gossip</li>
+        </ul>
+      </section>
+      <section><img src="images/iot-system.png" style="height: 90%"></section>
+      <section><img src="images/fuge.png" style="width: 90%"></section>
+      <section>
+        <h2>Demo!</h2>
+        <p><a href="https://github.com/nearform/iot-system">
+            https://github.com/nearform/iot-system
+            </a></p>
+      </section>
+      <section>
+        <h2>Links</h2>
+        <ul style="text-align: left" class="bullet">
+          <li style="text-align: left"><b>MQTT.js:&nbsp;</b><a href="http://npm.im/mqtt">http://npm.im/mqtt</a></li>
+          <li style="text-align: left"><b>Mosca:&nbsp;</b><a href="http://mosca.io/">http://mosca.io</a></li>
+          <li style="text-align: left"><b>Seneca:&nbsp;</b><a href="http://senecajs.org/">http://senecajs.org/</a></li>
+          <li style="text-align: left"><b>Fuge:&nbsp;</b><a href="http://fuge.io">http://fuge.io</a></li>
+          <li style="text-align: left"><b>Vidi:&nbsp;</b><a href="https://github.com/vidi-insights/vidi-dashboard">https://github.com/vidi-insights/vidi-dashboard</a></li>
+          <li style="text-align: left"><b>seneca-mesh:&nbsp;</b><a href="http://npm.im/seneca-mesh"> http://npm.im/seneca-mesh</a></li>
+          <li style="text-align: left"><b>toolbag:&nbsp;</b><a href="http://npm.im/toolbag">http://npm.im/toolbag</a></li>
+          <li style="text-align: left"><b>swim-js:&nbsp;</b><a href="http://npm.im/swim-js">http://npm.im/swim-js</a></li>
+          <li style="text-align: left"><b>baseswim:&nbsp;</b><a href="http://npm.im/baseswim">http://npm.im/baseswim</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>This presentation</h2>
+        <ul>
+          <li style="text-align: left"><a href="https://github.com/mcollina/js-everywhere">https://github.com/mcollina/js-everywhere</a></li>
+          <li style="text-align: left"><a href="https://mcollina.github.io/js-everywhere">https://mcollina.github.io/js-everywhere</a></li>
+          <li style="text-align: left"><a href="https://github.com/nearform/iot-system">
+              https://github.com/nearform/iot-system
+              </a></li>
+        </ul>
+      </section>
+      <section class="full-imgs"><img src="images/me.png"></section>
+      <section class="full-imgs"><img src="images/nearform.svg"></section>
+      <section>
+        <h1>Thanks!</h1><br>
+        <p>If you need help with Node</p>
+        <p>or the Internet of Things</p><br>
+        <h3><a href="mailto:matteo.collina@nearform.com">matteo.collina@nearform.com</a></h3>
+        <h3><a href="http://twitter.com/matteocollina">@matteocollina</a> on Twitter</h3>
+        <h3><a href="http://www.nearform.com">www.nearform.com</a></h3>
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>
